@@ -1,9 +1,15 @@
-require './lib/items'
-describe Items do
-  it 'can respond to price method with argument' do
-    expect(subject).to respond_to(:price).with(1).argument
+require './lib/checkout'
+describe Checkout do
+  describe '#scan' do
+    it 'can scan items' do
+      expect(subject.scan("milk")).to eq(2)
+    end
   end
-  it 'can output price of item' do
-    expect(subject.price("milk")).to eq(2) 
+  describe '#total' do
+    it 'can output total of items scanned' do
+      subject.scan("milk")
+      subject.scan("bread")
+      expect(subject.total).to eq(5)
+    end
   end
 end

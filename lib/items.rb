@@ -1,5 +1,7 @@
 class Items
 
+attr_reader :item_list
+
   def initialize
     @item_list = {
       "bread" => 3,
@@ -14,4 +16,5 @@ class Items
   def price(item)
     @item_list.fetch(item)
   end
+
 end
