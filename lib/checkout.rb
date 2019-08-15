@@ -8,6 +8,6 @@ class Checkout
     @items = items
   end
   def scan(item)
-    @total += (@items.item_list.fetch(item))
+    @total += (@items.price(item))
   end
 end
